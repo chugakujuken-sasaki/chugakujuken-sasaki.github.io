@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>無料体験・ご相談｜佐々木家庭教師塾</title>
+  <meta name="description" content="佐々木家庭教師塾への無料体験・ご相談フォームです。中学受験の現在地や志望校、学習のお悩みをご相談ください。">
+  <meta name="robots" content="noindex,follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/favicon.webp" type="image/png">
+  <link rel="apple-touch-icon" href="images/favicon.webp">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+<body class="contact-page">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="トップへ戻る">
+        <img src="images/logo-sasaki.webp" alt="" class="brand-mark" width="48" height="48" decoding="async">
+        <span class="brand-text"><strong>佐々木家庭教師塾</strong><small>中学受験専門｜プロ家庭教師</small></span>
+      </a>
+      <a href="index.html" class="button button-small button-ghost">トップへ戻る</a>
+    </div>
+  </header>
+
+  <main class="section contact-main">
+    <div class="container contact-grid">
+      <section class="contact-intro reveal">
+        <p class="eyebrow"><span>CONTACT</span> 無料体験・ご相談</p>
+        <h1><span>無料体験・ご相談</span></h1>
+        <div class="contact-note">必要事項をご入力のうえ、送信してください。</div>
+      </section>
+
+      <section class="form-card reveal delay-1" aria-labelledby="form-title">
+        <h2 id="form-title">お問い合わせ内容</h2>
+        <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+          <!-- Web3Formsで取得したAccess Keyに差し替えてください -->
+          <input type="hidden" name="access_key" value="73016413-8241-427d-9954-6d50a6bc8e5d">
+          <input type="hidden" name="subject" value="【佐々木家庭教師塾LP】無料体験・ご相談フォームからのお問い合わせ">
+          <input type="hidden" name="from_name" value="佐々木家庭教師塾 LP">
+          <input type="hidden" name="redirect" value="https://chugakujuken-sasaki.github.io/thanks.html">
+          <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <label>保護者様のお名前<span>必須</span>
+            <input type="text" name="name" required autocomplete="name" placeholder="例：佐藤 花子">
+          </label>
+          <label>メールアドレス<span>必須</span>
+            <input type="email" name="email" required autocomplete="email" placeholder="example@mail.com">
+          </label>
+          <label>ご相談内容<span>必須</span>
+            <textarea name="message" required rows="7" placeholder="現在のお悩み、体験授業のご希望、ご質問などをご記入ください。"></textarea>
+          </label>
+          <label class="check"><input type="checkbox" required> 入力内容を確認し、問い合わせを送信します。</label>
+          <button type="submit" class="button button-primary">送信する</button>
+          <p id="form-result" class="form-status" hidden aria-live="polite"></p>
+</form>
+      </section>
+    </div>
+  </main>
+  <script src="js/script.js"></script>
+</body>
+</html>

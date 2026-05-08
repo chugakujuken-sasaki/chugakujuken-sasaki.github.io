@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="760" viewBox="0 0 1000 760" fill="none">
+  <defs>
+    <linearGradient id="gArrow2" x1="170" y1="590" x2="770" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#48D8DF"/>
+      <stop offset="0.54" stop-color="#4C8BFF"/>
+      <stop offset="1" stop-color="#B768FF"/>
+    </linearGradient>
+    <radialGradient id="gGlow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(430 370) rotate(20) scale(430 300)">
+      <stop stop-color="#D8FBFF" stop-opacity="0.88"/>
+      <stop offset="0.52" stop-color="#EDF4FF" stop-opacity="0.44"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow2" x="40" y="80" width="900" height="620" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="16" stdDeviation="22" flood-color="#6372C6" flood-opacity="0.11"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow2)">
+    <path d="M150 590C211 615 339 638 470 608C664 564 817 435 900 250C910 228 897 202 871 198C771 182 605 177 448 242C280 311 186 430 138 536C129 557 132 582 150 590Z" fill="url(#gGlow2)"/>
+  </g>
+  <path d="M260 576L384 452L384 496L576 304L532 304L656 180L780 304L736 304L544 496L544 452L420 576H260Z" fill="url(#gArrow2)" fill-opacity="0.15"/>
+  <g opacity="0.32" fill="url(#gArrow2)">
+    <rect x="166" y="552" width="16" height="16" rx="3"/>
+    <rect x="188" y="530" width="16" height="16" rx="3"/>
+    <rect x="210" y="508" width="16" height="16" rx="3"/>
+    <rect x="232" y="486" width="16" height="16" rx="3"/>
+    <rect x="254" y="464" width="16" height="16" rx="3"/>
+    <rect x="276" y="442" width="16" height="16" rx="3"/>
+    <rect x="298" y="420" width="16" height="16" rx="3"/>
+    <rect x="320" y="398" width="16" height="16" rx="3"/>
+    <rect x="342" y="376" width="16" height="16" rx="3"/>
+    <rect x="364" y="354" width="16" height="16" rx="3"/>
+    <rect x="386" y="332" width="16" height="16" rx="3"/>
+    <rect x="408" y="310" width="16" height="16" rx="3"/>
+    <rect x="430" y="288" width="16" height="16" rx="3"/>
+    <rect x="452" y="266" width="16" height="16" rx="3"/>
+    <rect x="474" y="244" width="16" height="16" rx="3"/>
+    <rect x="496" y="222" width="16" height="16" rx="3"/>
+    <rect x="518" y="200" width="16" height="16" rx="3"/>
+    <rect x="540" y="178" width="16" height="16" rx="3"/>
+    <rect x="562" y="156" width="16" height="16" rx="3"/>
+    <rect x="584" y="134" width="16" height="16" rx="3"/>
+    <rect x="606" y="112" width="16" height="16" rx="3"/>
+    <rect x="606" y="134" width="16" height="16" rx="3"/>
+    <rect x="606" y="156" width="16" height="16" rx="3"/>
+    <rect x="628" y="112" width="16" height="16" rx="3"/>
+    <rect x="650" y="112" width="16" height="16" rx="3"/>
+    <rect x="628" y="134" width="16" height="16" rx="3"/>
+  </g>
+  <g opacity="0.18" fill="url(#gArrow2)">
+    <rect x="752" y="448" width="12" height="12" rx="3"/>
+    <rect x="770" y="430" width="12" height="12" rx="3"/>
+    <rect x="788" y="412" width="12" height="12" rx="3"/>
+    <rect x="788" y="430" width="12" height="12" rx="3"/>
+    <rect x="806" y="412" width="12" height="12" rx="3"/>
+    <rect x="824" y="412" width="12" height="12" rx="3"/>
+  </g>
+</svg>

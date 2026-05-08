@@ -1,0 +1,202 @@
+(() => {
+  const init = () => {
+    document.documentElement.classList.add('js-enabled');
+
+    const revealItems = document.querySelectorAll('.reveal, .fade-up');
+    const showAll = () => revealItems.forEach((el) => el.classList.add('is-visible'));
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -24px 0px'
+      });
+      revealItems.forEach((el) => io.observe(el));
+      window.setTimeout(showAll, 900);
+    } else {
+      showAll();
+    }
+
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.mobile-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const open = nav.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+      });
+
+      nav.querySelectorAll('a').forEach((a) => {
+        a.addEventListener('click', () => {
+          nav.classList.remove('is-open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'メニューを開く');
+        });
+      });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        const id = link.getAttribute('href');
+        if (!id || id === '#') return;
+        const target = document.querySelector(id);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+
+    const modal = document.querySelector('#contact-modal');
+    const openContact = () => {
+      if (!modal) return;
+      modal.hidden = false;
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+      const firstField = modal.querySelector('input:not([type="hidden"]):not([type="checkbox"]), textarea');
+      window.setTimeout(() => firstField?.focus(), 60);
+    };
+    const closeContact = () => {
+      if (!modal) return;
+      modal.hidden = true;
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('modal-open');
+    };
+    document.querySelectorAll('.js-open-contact').forEach((trigger) => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        nav?.classList.remove('is-open');
+        toggle?.setAttribute('aria-expanded', 'false');
+        toggle?.setAttribute('aria-label', 'メニューを開く');
+        openContact();
+      });
+    });
+    modal?.querySelectorAll('.js-close-contact').forEach((btn) => {
+      btn.addEventListener('click', closeContact);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal && !modal.hidden) closeContact();
+    });
+
+
+    const counters = document.querySelectorAll('[data-counter]');
+    const animateCounter = (el) => {
+      if (el.dataset.counted === 'true') return;
+      el.dataset.counted = 'true';
+      const target = Number(el.dataset.counter || el.textContent.replace(/\D/g, ''));
+      if (!Number.isFinite(target)) return;
+      const parent = el.closest('.big-stat');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduceMotion) {
+        el.textContent = String(target);
+        parent?.classList.add('is-counted');
+        return;
+      }
+      const duration = target > 100 ? 900 : 720;
+      const start = performance.now();
+      const tick = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = String(Math.round(target * eased));
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          el.textContent = String(target);
+          parent?.classList.add('is-counted');
+        }
+      };
+      el.textContent = '0';
+      requestAnimationFrame(tick);
+    };
+
+    if (counters.length) {
+      if ('IntersectionObserver' in window) {
+        const counterObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateCounter(entry.target);
+              counterObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.45 });
+        counters.forEach((counter) => counterObserver.observe(counter));
+      } else {
+        counters.forEach(animateCounter);
+      }
+    }
+
+    const forms = document.querySelectorAll('.contact-form');
+    forms.forEach((form) => {
+      const result = form.querySelector('.form-status');
+      const button = form.querySelector('button[type="submit"]');
+      const accessKeyInput = form.querySelector('[name="access_key"]');
+      const redirectInput = form.querySelector('[name="redirect"]');
+      const showResult = (message, type = '') => {
+        if (!result) return;
+        result.hidden = false;
+        result.textContent = message;
+        result.classList.remove('is-success', 'is-error');
+        if (type) result.classList.add(`is-${type}`);
+      };
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        if (!form.reportValidity()) return;
+
+        const accessKey = accessKeyInput?.value?.trim();
+        if (!accessKey || accessKey === 'YOUR_ACCESS_KEY_HERE') {
+          showResult('フォームの送信設定が未完了です。公開前に設定内容をご確認ください。', 'error');
+          return;
+        }
+
+        const formData = new FormData(form);
+        const originalText = button?.textContent || '';
+        if (button) {
+          button.disabled = true;
+          button.textContent = '送信中です…';
+        }
+        showResult('送信しています。少々お待ちください。');
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { Accept: 'application/json' }
+          });
+          const data = await response.json().catch(() => ({}));
+          if (response.ok && data.success !== false) {
+            form.reset();
+            showResult('送信が完了しました。完了ページへ移動します。', 'success');
+            const redirectUrl = redirectInput?.value || 'thanks.html';
+            window.setTimeout(() => {
+              window.location.href = redirectUrl;
+            }, 450);
+          } else {
+            showResult(data.message || '送信できませんでした。時間を置いて再度お試しください。', 'error');
+          }
+        } catch (error) {
+          showResult('通信エラーが発生しました。時間を置いて再度お試しください。', 'error');
+        } finally {
+          if (button) {
+            button.disabled = false;
+            button.textContent = originalText;
+          }
+        }
+      });
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
