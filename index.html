@@ -170,20 +170,22 @@
         <h2 id="modal-form-title">無料体験・ご相談</h2>
         <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
           <input type="hidden" name="access_key" value="73016413-8241-427d-9954-6d50a6bc8e5d">
-          <input type="hidden" name="subject" value="【佐々木家庭教師塾LP】無料体験・ご相談フォームからのお問い合わせ">
-          <input type="hidden" name="from_name" value="佐々木家庭教師塾 LP">
+          <input type="hidden" name="subject" value="【佐々木家庭教師塾HP】お問い合わせがありました">
+          <input type="hidden" name="from_name" value="佐々木家庭教師塾HP">
           <input type="hidden" name="redirect" value="https://chugakujuken-sasaki.github.io/thanks.html">
           <input type="checkbox" name="botcheck" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-          <label>保護者様のお名前<span>必須</span>
-            <input type="text" name="name" required autocomplete="name" placeholder="例：佐藤 花子">
-          </label>
-          <label>メールアドレス<span>必須</span>
-            <input type="email" name="email" required autocomplete="email" placeholder="example@mail.com">
-          </label>
-          <label>ご相談内容<span>必須</span>
-            <textarea name="message" required rows="7" placeholder="現在のお悩み、体験授業のご希望、ご質問などをご記入ください。"></textarea>
-          </label>
+  <label>保護者様のお名前<span>必須</span>
+    <input type="text" name="保護者様のお名前" required autocomplete="name" placeholder="例：佐藤 花子">
+  </label>
+
+  <label>メールアドレス<span>必須</span>
+    <input type="email" name="メールアドレス" required autocomplete="email" placeholder="example@mail.com">
+  </label>
+
+  <label>ご相談内容<span>必須</span>
+    <textarea name="ご相談内容" required rows="7" placeholder="現在のお悩み、体験授業のご希望、ご質問などをご記入ください。"></textarea>
+  </label>
           <label class="check"><input type="checkbox" required> 入力内容を確認し、問い合わせを送信します。</label>
           <button type="submit" class="button button-primary">送信する</button>
           <p id="form-result" class="form-status" hidden aria-live="polite"></p>
