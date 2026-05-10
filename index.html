@@ -13,11 +13,15 @@
   <meta name="theme-color" content="#f7fbff">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
   <link rel="icon" href="images/favicon.webp" type="image/png">
   <link rel="apple-touch-icon" href="images/favicon.webp">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/contact.css">
+  <link rel="preload" as="image" href="images/hero-visual-bg-sp.webp" media="(max-width: 760px)" fetchpriority="high">
+  <link rel="preload" as="image" href="images/hero-people-sp.webp" media="(max-width: 760px)" fetchpriority="high">
+  <link rel="preload" as="image" href="images/hero-visual-bg.webp" media="(min-width: 761px)" fetchpriority="high">
+  <link rel="preload" as="image" href="images/hero-people.webp" media="(min-width: 761px)" fetchpriority="high">
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -61,7 +65,16 @@
           <h1 id="hero-title"><span class="hero-line">キミの<span class="hero-highlight">「やる気」</span>は、</span><br><em>作れる。</em></h1>
           <p class="hero-lead"><span class="keep-line">褒めて伸ばし、自信を育てる。</span><br><span class="keep-line">一人ひとりの個性を理解し、</span><span class="keep-line">「できた！」を重ねる指導で、</span><span class="keep-line">お子さまの自信と実力を</span><span class="keep-line">最大限に引き出します。</span></p>
           <div class="hero-visual hero-visual-mobile reveal delay-1" aria-hidden="true">
-            <div class="visual-stage visual-stage-hero"><img src="images/hero-visual-bg.webp" alt="" class="visual-bg hero-bg" decoding="async" fetchpriority="high"><img src="images/hero-people.webp" alt="" class="visual-people hero-people" decoding="async" fetchpriority="high"></div>
+            <div class="visual-stage visual-stage-hero">
+              <picture>
+                <source media="(max-width: 760px)" srcset="images/hero-visual-bg-sp.webp">
+                <img src="images/hero-visual-bg.webp" alt="" class="visual-bg hero-bg" width="900" height="675" decoding="async" fetchpriority="high">
+              </picture>
+              <picture>
+                <source media="(max-width: 760px)" srcset="images/hero-people-sp.webp">
+                <img src="images/hero-people.webp" alt="" class="visual-people hero-people" width="760" height="582" decoding="async" fetchpriority="high">
+              </picture>
+            </div>
           </div>
           <div class="hero-stats" aria-label="主な実績">
             <div class="stat-card"><img src="images/icons/hero-history.webp" alt="" class="stat-icon-image" decoding="async" loading="lazy"><div><strong>指導歴</strong><span>25年以上</span></div></div>
@@ -75,7 +88,16 @@
           <p class="action-note">お気軽にお問い合わせください。</p>
         </div>
         <div class="hero-visual hero-visual-desktop reveal delay-1">
-          <div class="visual-stage visual-stage-hero"><img src="images/hero-visual-bg.webp" alt="" class="visual-bg hero-bg" decoding="async" fetchpriority="high"><img src="images/hero-people.webp" alt="佐々木先生と生徒たち" class="visual-people hero-people" decoding="async" fetchpriority="high"></div>
+          <div class="visual-stage visual-stage-hero">
+            <picture>
+              <source media="(max-width: 760px)" srcset="images/hero-visual-bg-sp.webp">
+              <img src="images/hero-visual-bg.webp" alt="" class="visual-bg hero-bg" width="900" height="675" decoding="async" fetchpriority="high">
+            </picture>
+            <picture>
+              <source media="(max-width: 760px)" srcset="images/hero-people-sp.webp">
+              <img src="images/hero-people.webp" alt="佐々木先生と生徒たち" class="visual-people hero-people" width="760" height="582" decoding="async" fetchpriority="high">
+            </picture>
+          </div>
         </div>
       </div>
     </section>
@@ -108,7 +130,16 @@
           <p>「できた！」の積み重ねが、やる気と自信を生みます。お子さまの性格や理解度に合わせて、一人ひとりに最適な学び方を設計し、主体的に学ぶ力を育てます。</p>
           <div class="feature-pills"><span class="pill"><img class="pill-icon" src="images/icons/pill-praise.webp" alt="" decoding="async" loading="lazy">褒めて伸ばす</span><span class="pill"><img class="pill-icon" src="images/icons/pill-confidence.webp" alt="" decoding="async" loading="lazy">自信を育てる</span><span class="pill"><img class="pill-icon" src="images/icons/pill-selfdrive.webp" alt="" decoding="async" loading="lazy">自走力を育む</span></div>
         </div>
-        <div class="philosophy-visual reveal delay-1"><div class="visual-stage visual-stage-philosophy"><img src="images/philosophy-bg.webp" alt="" class="visual-bg philosophy-bg" decoding="async" loading="lazy"><img src="images/philosophy-people.webp" alt="佐々木先生のイラスト" class="visual-people philosophy-people" decoding="async" loading="lazy"></div></div>
+        <div class="philosophy-visual reveal delay-1"><div class="visual-stage visual-stage-philosophy">
+          <picture>
+            <source media="(max-width: 760px)" srcset="images/philosophy-bg-sp.webp">
+            <img src="images/philosophy-bg.webp" alt="" class="visual-bg philosophy-bg" width="1448" height="1086" decoding="async" loading="lazy">
+          </picture>
+          <picture>
+            <source media="(max-width: 760px)" srcset="images/philosophy-people-sp.webp">
+            <img src="images/philosophy-people.webp" alt="佐々木先生のイラスト" class="visual-people philosophy-people" width="1000" height="760" decoding="async" loading="lazy">
+          </picture>
+        </div></div>
       </div>
     </section>
 
