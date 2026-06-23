@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chugakujuken-sasaki.github.io/sitemap.xml
